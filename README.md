@@ -1,6 +1,6 @@
 # Projeto desenvolvido para revisão de redux da Turma 21
 
-##Calcula IMC
+## Calcula IMC
 
 - npm install 
 - npm start
