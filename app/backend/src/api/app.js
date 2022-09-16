@@ -1,10 +1,12 @@
 require('express-async-errors');
+const bodyParser = require('body-parser');
 const Cors = require('cors');
 const express = require('express');
 const UserController = require('../controllers/UserController');
 // const httpErrorMiddleware = require('../middlewares/httpErrorMiddleware');
 
 const app = express();
+app.use(bodyParser.json());
 app.use(Cors());
 
 app.use(express.json());

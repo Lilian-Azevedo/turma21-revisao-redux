@@ -14,10 +14,11 @@ const findById = async (id) => {
     return user;
 };
 
-const addUser = async (name, heigth, weigth) => {
+const addUser = async (infoUser) => {
+    const { name, heigth, weigth } = infoUser;
     const users = await User.getAll();
     const findUser = users.find((user) => user.name === name);
-  
+
     if (findUser) {
       return {
         code: 409,
@@ -26,7 +27,7 @@ const addUser = async (name, heigth, weigth) => {
         },
       };
     }
-    return User.addUser(name, heigth, weigth);
+    return User.addUser(infoUser);
   };
 
 module.exports = {

@@ -12,9 +12,10 @@ const findById = async (id) => {
   return user;
 };
 
-const addUser = async (name, heigth, weigth) => {
+const addUser = async (info) => {
+  const { name, heigth, weigth } = info;
   const [user] = await connection.execute(
-    'INSERT INTO imc.users (name, heigth, weigth) VALUES (?,?)',
+    'INSERT INTO imc.users (name, heigth, weigth) VALUES (?,?,?)',
   [name, heigth, weigth],
   );
   return ({ id: user.insertId, name, heigth, weigth });
