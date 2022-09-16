@@ -9,12 +9,12 @@ app.use(Cors());
 
 app.use(express.json());
 
-// app.use('/', routes);
-
 // app.use(httpErrorMiddleware);
 
 app.get('/exit', (_req, res) => res.status(418).end());
+
+app.get('/user/:id', UserController.findById);
 app.get('/user', UserController.getAll);
-app.post('/user');
+app.post('/user', UserController.addUser);
 
 module.exports = app;
