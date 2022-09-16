@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
@@ -25,8 +26,12 @@ class Form extends Component {
       () => this.handleDispatch());
   }
 
-  handleDispatch = () => {
+  handleDispatch = async () => {
     const { userDispatch } = this.props;
+    const { name, height, weight } = this.state;
+    const result = await axios.post('http://localhost:3001/user',
+      { name, heigth: Number(height), weigth: Number(weight) });
+    console.log(result);
     userDispatch(this.state);
     this.setState(INITIAL_STATE);
   }
