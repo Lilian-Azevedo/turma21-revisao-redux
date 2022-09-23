@@ -1,15 +1,22 @@
-// import axios from 'axios';
+import axios from 'axios';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../styles/styles.css';
 
 class User extends Component {
 
+  getUsers = async () => {
+    const result = await axios.get('http://localhost:3001/user');
+    console.log(result.data);
+  }
+
+  componentDidMount () {
+    this.getUsers();
+  }
+
   render() {
     const { user } = this.props;
     const {  name, height, weight, imc } = user;
-    // const result = await axios.get('http://localhost:3001/user');
-    // console.log(result.data);
     const imcOneDec = Number(imc).toFixed(1);
 
     return (

@@ -7,8 +7,8 @@ USE imc;
 CREATE TABLE users (
     id INT NOT NULL auto_increment,
     name VARCHAR(30) NOT NULL,
-    heigth DECIMAL(1,2) NOT NULL,
-    weigth DECIMAL(1,2) NOT NULL,
+    heigth DOUBLE NOT NULL,
+    weigth DOUBLE NOT NULL,
     PRIMARY KEY(id)
 ) ENGINE=INNODB;
 
